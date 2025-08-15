@@ -1,0 +1,244 @@
+.models {
+  padding: 24px 16px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.models__header {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.models__back {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.models__title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  span { color: #ff6a00; }
+}
+
+.models__filters {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.models__select,
+.models__search {
+  padding: 10px 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  min-width: 220px;
+}
+
+.models__grid {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.models__card {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .1s ease;
+  background: #fff;
+}
+.models__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0,0,0,.06);
+}
+
+.models__img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.models__name { margin-top: 8px; font-weight: 600; }
+.models__meta { margin-top: 4px; display: flex; gap: 8px; font-size: 12px; opacity: .8; }
+
+.models__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pg__btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.pg__btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.pg__info { font-size: 14px; }
+.models__state { text-align: center; padding: 40px 0; }
+.models {
+  --orange-1: #ff6a00;
+  --orange-2: #ff8a3d;
+
+  .brand-topbar {
+    display: flex; align-items: center; gap: 16px; padding: 12px 0;
+    &__back { background: none; border: 0; cursor: pointer; font-size: 14px; opacity: .7; }
+    &__logo img { height: 20px; }
+  }
+
+  .brand-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 24px;
+    min-height: 320px;
+    margin: 10px 0 24px;
+    position: relative;
+
+    &__left { padding: 12px 0; }
+    &__title { font-size: clamp(28px, 4vw, 48px); font-weight: 700; line-height: 1.1; margin: 0 0 12px;
+      span { color: var(--orange-1); }
+    }
+    &__desc { max-width: 560px; opacity: .8; margin: 0 0 8px; }
+    &__hint { opacity: .5; }
+
+    /* Forma portokalli */
+    &__shape {
+      position: relative;
+      justify-self: end;
+      width: min(520px, 42vw);
+      aspect-ratio: 1 / 1;
+      border-bottom-left-radius: 48%;
+      border-bottom-right-radius: 48%;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      overflow: hidden;
+      background: radial-gradient(120% 120% at 70% 30%, var(--orange-2), var(--orange-1));
+      display: grid; place-items: center;
+      clip-path: ellipse(100% 80% at 100% 0%); /* jep atë “çerek-rrethi” */
+    }
+
+    &__brandmark {
+      width: 55%;
+      opacity: .9;
+      filter: contrast(1.1);
+      user-select: none; pointer-events: none;
+    }
+
+    /* “Notch” poshtë në mes */
+    &__notch {
+      position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%);
+      width: 44px; height: 44px; background: #fff; border-radius: 999px;
+      display: grid; place-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,.06);
+      img { width: 18px; height: 18px; }
+    }
+  }
+
+  .brand-section-title {
+    text-align: center; font-size: clamp(22px, 2.6vw, 32px); margin: 24px 0 8px;
+    span { color: var(--orange-1); }
+  }
+
+  .models__filters {
+    display: flex; gap: 12px; justify-content: center; margin-bottom: 18px;
+  }
+}
+
+/* ===== Full‑bleed Footer (shkon deri në skajet e faqes) ===== */
+.footer {
+  /* ky “breakout” e nxjerr footer-in jashtë kufizimit të .models */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;   /* shtyje majtas gjysmën e viewport-it */
+  margin-right: -50vw;  /* shtyje djathtas gjysmën e viewport-it */
+  width: 100vw;         /* bëje sa gjithë viewport-i */
+
+  background: #f3f3f3;
+  border-top: 1px solid #e8e8e8;
+  margin-top: 32px;
+  padding: 28px 0 18px;
+  color: #444;
+  font-size: 14px;
+}
+
+/* brenda footer-it kufizo përmbajtjen me max-width si pjesa tjetër e faqes */
+.footer__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 28px;
+}
+
+.footer__logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  img { height: 28px; }
+  span { font-size: 20px; font-weight: 600; }
+}
+.footer__contact { display: grid; gap: 8px; }
+.footer__line { display: flex; align-items: center; gap: 10px; opacity: .8; }
+.footer__col h4 { font-size: 13px; letter-spacing: .6px; margin: 6px 0 10px; color: #222; }
+.footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer__col a { text-decoration: none; color: #555; }
+.footer__col a:hover { color: #000; }
+.footer__social { display: flex; gap: 14px; align-items: center; }
+.footer__social a { color: #666; }
+.footer__social a:hover { color: #111; }
+.footer__copy { text-align: center; font-size: 12px; color: #8a8a8a; margin-top: 18px; }
+
+/* Responsive */
+@media (max-width: 940px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+}
+@media (max-width: 560px) {
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__logo span { font-size: 18px; }
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 28px;
+
+  &__info { font-size: 12px; color: #8c8c97; letter-spacing: .02em; text-transform: uppercase; }
+
+  &__nav { display: flex; align-items: center; gap: 8px; }
+
+  &__btn {
+    min-width: 34px; height: 34px; padding: 0 8px;
+    border: 1px solid #e5e5e7; background: #fff; border-radius: 6px;
+    font-size: 14px; cursor: pointer;
+  }
+  &__btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  .is-active {
+    border-color: #ff8756; box-shadow: 0 0 0 2px rgba(255,135,86,.15) inset;
+    font-weight: 600;
+  }
+
+  &__dots { padding: 0 6px; color: #b0b0b7; }
+}
+
+@media (max-width: 640px) {
+  .pager { flex-direction: column; align-items: flex-start; }
+}
+

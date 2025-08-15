@@ -1,0 +1,40 @@
+.brand-card {
+  display: grid;
+  place-items: center;
+  height: 110px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: #d6dae3;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  img {
+    max-width: 150px;
+    max-height: 54px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0.8) opacity(0.75);
+    transition: filter 0.2s ease, opacity 0.2s ease;
+
+    .brand-card:hover & {
+      filter: none;
+      opacity: 1;
+    }
+  }
+
+  .brand-fallback {
+    color: #6b7280;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+  }
+}

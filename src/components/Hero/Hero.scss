@@ -1,0 +1,103 @@
+:root {
+  --accent: #ff6a00;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #eceff3;
+  --shadow: 0 12px 30px rgba(0,0,0,.10);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 28px;
+  color: var(--text);
+  background: #fff;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+}
+
+/* LEFT */
+.hero__text {
+  max-width: 680px;
+  padding: 30px;
+
+  @media (max-width: 960px) { order: 2; }
+}
+
+.hero__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+
+  img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+}
+
+.hero__headline {
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 8px 0 10px;
+
+  .accent { color: var(--accent); }
+}
+
+.hero__sub {
+  color: var(--muted);
+  margin: 0;
+  max-width: 52ch;
+}
+
+/* RIGHT (rounded image panel) */
+.hero__media {
+  position: relative;
+  overflow: hidden;
+
+ 
+
+
+  @media (max-width: 960px) {
+    order: 1;
+    border-radius: 20px;
+    aspect-ratio: 16 / 10;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* optional small “tab” centered at bottom of the image */
+.hero__tab {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  width: 64px;
+  height: 28px;
+  border-radius: 999px 999px 0 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+
+  /* orange mark inside the tab (simple dot) */
+  &::after {
+    content: "";
+    width: 14px; height: 14px;
+    border-radius: 999px;
+    background: var(--accent);
+    display: block;
+    margin: 0 auto;
+  }
+}
